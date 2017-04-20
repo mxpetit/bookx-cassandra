@@ -5,8 +5,10 @@ sed -i -e "s/num_tokens/\#num_tokens/" $CASSANDRA_CONFIG/cassandra.yaml
 
 # Get running container's IP
 IP=`hostname --ip-address`
-if [ $# == 1 ]; then SEEDS="$1,$IP"; 
+if [ $# == 1 ]; then SEEDS="$1,$IP";
 else SEEDS="$IP"; fi
+
+sed -i -e "s/^start_rpc.*/start_rpc: true/" $CASSANDRA_CONFIG/cassandra.yaml
 
 # 0.0.0.0 Listens on all configured interfaces
 # but you must set the broadcast_rpc_address to a value other than 0.0.0.0

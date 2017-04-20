@@ -14,5 +14,5 @@ docker pull maximep/bookx-cassandra:latest
 ## Run
 
 ```sh
-docker run -it maximep/bookx-cassandra -p 9042:9042
+docker run -it maximep/bookx-cassandra -p 9042:9042 9160:9160
 ```
